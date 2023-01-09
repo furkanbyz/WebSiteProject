@@ -1,0 +1,256 @@
+<body class="hold-transition login-page" *ngIf="!token" class="bg-image" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+        height: 100vh">
+  <br>
+
+  <!-- logged in successfully page -->
+  <div class="alert alert-primary" role="alert" *ngIf="token">
+    <!-- <h1 id="clock"></h1> -->
+
+
+    <h4 class="alert-heading"><strong>Welcome...</strong></h4>
+    <p>You logged in succesfully.</p>
+    <hr>
+    <p class="mb-0">You can see categories and choose one of them on left panel.</p>
+  </div>
+
+  <!-- log in page -->
+  <div class="login-box" *ngIf="!token" style="margin-left: 675px; margin-top: 125px;">
+    <!-- <h1 id="clock"></h1> -->
+
+    <!-- /.login-logo -->
+    <div class="card card-outline card-primary">
+      <div class="card-header text-center">
+        <a href="../../index2.html" class="h1"><b>IDEFIX</b>.com</a>
+      </div>
+      <div class="card-body">
+        <p class="login-box-msg">Sign in to start your session</p>
+
+        <form action="../../index3.html" method="post">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Enter Your Username" [(ngModel)]="username"
+              name="username">
+
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password" name="password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+
+
+            <div class="col-4">
+              <button type="button" id="submit" value="Submit" class="btn btn-primary btn-block"
+                (click)="loginUser()">Sign In</button>
+            </div>
+            <!-- /.col -->
+          </div>
+        </form>
+        <br>
+        <p class="mb-1" style="font-size: 15px;">
+          <a href="mailto:furkan_1582@hotmail.com">Forgot your infos? Click here</a>
+        </p>
+
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+  <!-- /.login-box -->
+
+  <!-- jQuery -->
+  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="../../dist/js/adminlte.min.js"></script>
+  <!-- <script src="https://cdn.socket.io/4.5.4/socket.io.min.js" integrity="sha384-/KNQL8Nu5gCHLqwqfQjA689Hhoqgi2S84SNUxC3roTe4EhJ9AfLkp8QiQcU8AMzI" crossorigin="anonymous"></script>
+    <script src="app.js"></script> -->
+</body>
+
+<!-- if token exists -->
+<div *ngIf="token">
+  <div class="wrapper">
+
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__wobble" src="assets/img/ıdefıx.png" alt="AdminLTELogo" height="200" width="200">
+    </div>
+
+    <nav class="main-header navbar navbar-expand navbar-dark">
+      <div class="col-4">
+        <ul class="navbar-nav">
+
+          <li class="nav-item d-none d-sm-inline-block">
+            <a [routerLink]="['/logIn']" routerLinkActive="router-link-active" class="nav-link">Home</a>
+          </li>
+
+        </ul>
+      </div>
+
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+      <a [routerLink]="['/logIn']" class="brand-link">
+        <img src="assets/img/ıdefıx.png" alt="idefix.com" class="brand-image " width="500" height="600">
+        <span class="brand-text"><strong>IDEFIX</strong></span>
+      </a>
+
+      <div class="sidebar">
+
+        <br><br>
+
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+            <!-- ACTORS -->
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-light fa-film"></i>
+                <p>
+                  Actors
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a [routerLink]="['/actors']" routerLinkActive="router-link-active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Click to see</p>
+                  </a>
+                </li>
+
+              </ul>
+            </li>
+            <br>
+            <!-- DRAWERS -->
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-regular fa-palette"></i>
+                <p>
+                  Drawers
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a [routerLink]="['/drawers']" routerLinkActive="router-link-active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Click to see</p>
+                  </a>
+                </li>
+
+              </ul>
+            </li>
+            <br>
+            <!-- WRITERS -->
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-solid fa-book"></i>
+                <p>
+                  Writers
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a [routerLink]="['/writers']" routerLinkActive="router-link-active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Click to see</p>
+                  </a>
+                </li>
+
+              </ul>
+            </li>
+
+            <br><br><br>
+
+            <li class="nav-item" *ngIf="!token">
+              <a [routerLink]="['/logIn']" class="nav-link">
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                  Log In
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a [routerLink]="['/about']" routerLinkActive="router-link-active" class="nav-link">
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                  About Us
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item" *ngIf="token">
+              <a [routerLink]="['/logOut']" class="nav-link">
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                  Log Out
+                </p>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+
+      </div>
+
+    </aside>
+    <router-outlet></router-outlet>
+
+    <div class="content-wrapper">
+
+      <section class="content">
+        <div class="container-fluid">
+          <br>
+          <div class="row">
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <br>
+
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <router-outlet></router-outlet>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <footer class="main-footer">
+
+      <strong>Copyright &copy; 2014-2023 </strong>
+      All rights reserved by IDEFIX.
+      <div class="float-right d-none d-sm-inline-block">
+
+        <div class="border border-white text-dark ">
+          {{ time | date: 'hh:mm:ss a' }}
+        </div>
+
+      </div>
+
+    </footer>
+  </div>
+
+</div>

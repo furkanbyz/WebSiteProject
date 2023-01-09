@@ -1,0 +1,164 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+
+        <!--CREATE BUTTON  -->
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#xx">Create</button>
+
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+          aria-hidden="true" id="xx">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-dialog-centered" role="document"></div>
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Creating Panel</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="userForm">
+
+                  <div class="col-lg-4 mt-2">
+                    <input size="50" type="text" class="form-control" formControlName="isim"
+                      placeholder="Enter the name of actor">
+                  </div>
+                  <div class="col-lg-4 mt-2">
+                    <input type="text" class="form-control" formControlName="kitaplar"
+                      placeholder="Enter book that you want to add">
+                  </div>
+
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" onClick="window.location.reload();" class="btn btn-secondary"
+                  data-dismiss="modal">Close</button>
+                <button type="button" onClick="window.location.reload();" class="btn btn-success"
+                  (click)="userSubmit()">Click to Create</button>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+        <br><br>
+
+
+        <div class="card">
+
+          <!-- GET TABLE -->
+
+          <div class="card-body table-responsive p-0" style="height: 400px;">
+
+            <table class="table table-head-fixed text-nowrap">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Books</th>
+                  <th scope="col">Editing Operations</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let us of readData">
+                  <th scope="row">{{us.id}}</th>
+                  <td>{{us.isim}}</td>
+                  <td>{{us.kitaplar}}</td>
+                  <td>
+                    <!-- DELETE BUTTON -->
+                    <button type="button" class="btn btn-danger" data-toggle="modal"
+                      data-target="#delete">Delete</button>
+                    <div class="modal fade" id="delete" tabindex="-1" role="dialog"
+                      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Deleting Panel</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            Are you sure to <strong>delete</strong> this registry?
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                            <button type="button" class="btn btn-danger" (click)="deleteID(us.id)"  onClick="window.location.reload();">Click to
+                              Delete</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                    &nbsp;
+
+                    <!-- UPDATE BUTTON -->
+
+                    &nbsp;
+
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#update"
+                      (click)="ggg(us.id)">Update</button>
+
+                    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+                      aria-labelledby="myLargeModalLabel" aria-hidden="true" id="update">
+                      <div class="modal-dialog modal-lg">
+                        <div class="modal-dialog modal-dialog-centered" role="document"></div>
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Updating Panel</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <form [formGroup]="userForm">
+
+                              <div class="col-lg-4 mt-2">
+                                <input size="50" type="text" class="form-control" formControlName="isim"
+                                  placeholder="Enter the name of actor">
+                              </div>
+                              <div class="col-lg-4 mt-2">
+                                <input type="text" class="form-control" formControlName="kitaplar"
+                                  placeholder="Enter book that you want to add">
+                              </div>
+
+                            </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" onClick="window.location.reload();" class="btn btn-secondary"
+                              data-dismiss="modal">Close</button>
+                            <button type="button" onClick="window.location.reload();" class="btn btn-success"
+                              (click)="userUpdate()">Click to Update</button>
+                          </div>
+                        </div>
+                      </div>
+
+
+                    </div>
+
+
+
+                    &nbsp;
+
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>
+
+
+  </div>
+
+
+</section>
